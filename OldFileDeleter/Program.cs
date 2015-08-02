@@ -20,7 +20,7 @@ namespace OldFileDeleter
         {
             if (args.Length == 0)
             {
-                Console.WriteLine(@"Please write arguments in this format: @""path:\to\directory"" ""the number of weeks from the last opening"" ");
+                Console.WriteLine(@"Please write arguments in this format: ""path:\to\directory"" ""the number of weeks from the last opening"" ");
                 Console.ReadLine();
                 return;
             }
