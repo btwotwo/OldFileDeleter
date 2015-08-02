@@ -9,6 +9,12 @@ namespace OldFileDeleter
 {
     class Program
     {
+        private static string EscapeCommandLineArguments(string arg)
+        {
+            string arguments = "";
+            arguments += arg.Replace("\\", @"/");
+            return arguments;
+        }
 
         static void Main(string[] args)
         {
@@ -19,6 +25,7 @@ namespace OldFileDeleter
                 return;
             }
 
+           args[0] = EscapeCommandLineArguments(args[0]);
 
             ArgsChecker check = new ArgsChecker();
 
