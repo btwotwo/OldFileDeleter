@@ -11,7 +11,7 @@ namespace OldFileDeleter
     {
         public bool CheckPath(string path)
         {
-            string regex = @"^(?:[\w]\:)(\\[a-z_\-\s0-9\.]+)+$";
+            string regex = @"^(?:[\w]\:)(\/[a-z_\-\s0-9\.]+)+$";
             Regex reg = new Regex(regex, RegexOptions.IgnoreCase);
 
             Match m = reg.Match(path);

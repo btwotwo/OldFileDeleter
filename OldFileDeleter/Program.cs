@@ -25,7 +25,7 @@ namespace OldFileDeleter
                 return;
             }
 
-           args[0] = EscapeCommandLineArguments(args[0]);
+            args[0] = EscapeCommandLineArguments(args[0]);
 
             ArgsChecker check = new ArgsChecker();
 
