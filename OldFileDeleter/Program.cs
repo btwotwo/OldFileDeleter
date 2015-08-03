@@ -22,7 +22,7 @@ namespace OldFileDeleter
             string path = args[0];
             string date = args[1];
 
-            path = EscapeCommandLineArguments(args[0]);
+            path = EscapeCommandLineArguments(path);
 
             ArgsChecker check = new ArgsChecker();
 
