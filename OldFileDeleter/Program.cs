@@ -33,7 +33,7 @@ namespace OldFileDeleter
             }
 
             var delete = new Deleter();
-            delete.DeleteFiles(path, int.Parse(date) * 7);
+            delete.DeleteOlds(path, int.Parse(date) * 7);
 
         }
     }
