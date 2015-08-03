@@ -4,12 +4,6 @@ namespace OldFileDeleter
 {
     class Program
     {
-        private static string EscapeCommandLineArguments(string arg)
-        {
-            string arguments = "";
-            arguments += arg.Replace("\\", @"/");
-            return arguments;
-        }
 
         static void Main(string[] args)
         {
@@ -21,8 +15,6 @@ namespace OldFileDeleter
             }
             string path = args[0];
             string date = args[1];
-
-            path = EscapeCommandLineArguments(path);
 
             ArgsChecker check = new ArgsChecker();
 
@@ -41,7 +33,7 @@ namespace OldFileDeleter
             }
 
             Deleter delete = new Deleter();
-            delete.DeleteFiles(args[0], int.Parse(args[1]) * 7);
+            delete.DeleteFiles(path, int.Parse(date) * 7);
 
         }
     }
