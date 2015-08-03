@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace OldFileDeleter
 {
     class Parser
     {
-        private FileInfo[] GetFileList (string path)
+        private IEnumerable<FileInfo> GetFileList (string path)
         {
             FileInfo[] filesArray = null;
-            DirectoryInfo directory = new DirectoryInfo(path);
+            var directory = new DirectoryInfo(path);
 
             filesArray = directory.GetFiles();
             return filesArray;
@@ -17,18 +18,9 @@ namespace OldFileDeleter
 
         public List<FileInfo> GetOldFiles(string path, int lastAccess)
         {
-            FileInfo[] files = GetFileList(path);
+            var files = GetFileList(path);
 
-            var oldFiles = new List<FileInfo>();
-
-            foreach(FileInfo file in files)
-            {
-                if((DateTime.Now - file.LastAccessTime).Days > lastAccess)
-                {
-                    oldFiles.Add(file);
-                }
-            }
-            return oldFiles;
+            return files.Where(file => (DateTime.Now - file.LastAccessTime).Days > lastAccess).ToList();
         }
     }
 }

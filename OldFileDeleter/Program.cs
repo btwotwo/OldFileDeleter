@@ -16,7 +16,7 @@ namespace OldFileDeleter
             string path = args[0];
             string date = args[1];
 
-            ArgsChecker check = new ArgsChecker();
+            var check = new ArgsChecker();
 
             if (!check.CheckPath(path))
             {
@@ -32,7 +32,7 @@ namespace OldFileDeleter
                 return;
             }
 
-            Deleter delete = new Deleter();
+            var delete = new Deleter();
             delete.DeleteFiles(path, int.Parse(date) * 7);
 
         }

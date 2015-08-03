@@ -7,34 +7,13 @@ namespace OldFileDeleter
     {
         public bool CheckPath(string path)
         {
-
-            if (Directory.Exists(path))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return path != null && Directory.Exists(path);
         }
 
         public bool CheckDate(string days)
         {
             double day;
-            if (double.TryParse(days, out day))
-            {
-                if(day <= 0)
-                {
-                    return false;
-                }
-                else
-                    return true;
-
-            }
-            else
-            {
-                return false;
-            }
+            return double.TryParse(days, out day) && !(day <= 0);
         }
     }
 }

@@ -6,7 +6,7 @@ namespace OldFileDeleter
 {
     class Deleter
     {
-        private bool Confirmator(List<FileInfo> oldFiles)
+        private bool Confirmator(IReadOnlyCollection<FileInfo> oldFiles)
         {
             if (oldFiles.Count == 0)
             {
@@ -18,7 +18,7 @@ namespace OldFileDeleter
 
             else
             {
-                foreach (FileInfo file in oldFiles)
+                foreach (var file in oldFiles)
                 {
                     Console.WriteLine(file);
                 }
@@ -29,11 +29,11 @@ namespace OldFileDeleter
             {
                 string answer = Console.ReadLine();
 
-                if (answer.ToLower() == "y")
+                if (answer != null && answer.ToLower() == "y")
                 {
                     return true;
                 }
-                else if (answer.ToLower() == "n")
+                else if (answer != null && answer.ToLower() == "n")
                 {
                     return false;
                 }
@@ -48,10 +48,9 @@ namespace OldFileDeleter
 
         public void DeleteFiles(string path, int days)
         {
-            Parser parce = new Parser();
+            var parce = new Parser();
 
-            var oldFiles = new List<FileInfo>();
-            oldFiles = parce.GetOldFiles(path, days);
+            var oldFiles = parce.GetOldFiles(path, days);
             bool confirmation = Confirmator(oldFiles);
 
             if (!confirmation)
