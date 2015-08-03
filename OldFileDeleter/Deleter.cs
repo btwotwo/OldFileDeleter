@@ -10,7 +10,7 @@ namespace OldFileDeleter
         {
             if (oldFiles.Count == 0)
             {
-                Console.WriteLine("You don't have any files in this directory");
+                Console.WriteLine("You don't have any old files in this directory");
                 Console.ReadLine();
                 return false;
             }
@@ -48,7 +48,7 @@ namespace OldFileDeleter
 
         public void DeleteFiles(string path, int days)
         {
-            Parcer parce = new Parcer();
+            Parser parce = new Parser();
 
             var oldFiles = new List<FileInfo>();
             oldFiles = parce.GetOldFiles(path, days);

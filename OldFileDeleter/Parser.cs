@@ -4,7 +4,7 @@ using System.IO;
 
 namespace OldFileDeleter
 {
-    class Parcer
+    class Parser
     {
         private FileInfo[] GetFileList (string path)
         {

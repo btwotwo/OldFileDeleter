@@ -19,19 +19,21 @@ namespace OldFileDeleter
                 Console.ReadLine();
                 return;
             }
+            string path = args[0];
+            string date = args[1];
 
-            args[0] = EscapeCommandLineArguments(args[0]);
+            path = EscapeCommandLineArguments(args[0]);
 
             ArgsChecker check = new ArgsChecker();
 
-            if (!check.CheckPath(args[0]))
+            if (!check.CheckPath(path))
             {
                 Console.Write("Please enter valid path");
                 Console.ReadLine();
                 return;
             }
 
-            if (!check.CheckDate(args[1]))
+            if (!check.CheckDate(date))
             {
                 Console.Write("Please enter valid date");
                 Console.ReadLine();

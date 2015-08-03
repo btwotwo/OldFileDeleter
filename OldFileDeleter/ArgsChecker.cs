@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using System.IO;
 
 namespace OldFileDeleter
 {
@@ -6,12 +7,8 @@ namespace OldFileDeleter
     {
         public bool CheckPath(string path)
         {
-            string regex = @"^(?:[\w]\:)(\/[a-z_\-\s0-9\.]+)+$";
-            Regex reg = new Regex(regex, RegexOptions.IgnoreCase);
 
-            Match m = reg.Match(path);
-
-            if (m.Success)
+            if (Directory.Exists(path))
             {
                 return true;
             }
